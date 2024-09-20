@@ -39,63 +39,68 @@ ol {
 
 .content {
   display: flex;
-  flex-direction: row;
+  align-items: end;
   width: 1140px;
   height: 534px;
-  justify-content: space-between;
   gap: 30px;
-  margin: 133px 0 0 30px;
-}
-
-.search-form {
-  display: flex;
-  justify-content: space-evenly;
-  gap: 40px;
-}
-
-.content__list {
-  overflow-y: scroll;
-  overflow-x: hidden;
-  max-width: 100%;
-  /* max-height: 100%; */
-}
-
-.content__details {
-  width: 100%;
-  height: 100%;
-  display: flex;
-  flex-direction: column;
+  margin: 133px 30px 133px 30px;
+  /* display: flex;
+  flex-direction: row;
+  vertical-align: bottom;
+  width: 1140px;
+  height: 534px;
+  margin: 133px 30px 133px 30px;
+  justify-content: space-between;
+  align-content: center;
+  gap: 30px; */
 }
 
 .result {
-  display: flex;
-  flex-wrap: wrap;
-  align-content: end;
+  display: flex;  
+  margin-top: 78px;
+  flex-direction: column;
+  max-width: 711px;
+  min-height: 456px;
+  align-items: end;
+  /* width: 711px;
+  height: 456px;
+  padding-top: 62px; */
 }
-
-.result__video-container {
+.result__video-container{
   position: relative;
   width: 711px;
-  margin-bottom: 11px;
+  height: 386px;
+  padding-bottom: 16px;
+
+}
+.content__list {
+  width: 399px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  position: relative;
 }
 
 .result__video {
   width: 100%;
-  height: 386px;
+  padding-bottom: 16px;
   object-fit: cover;
 }
 
 .search-form {
   display: flex;
-  flex-direction: row;
+  /* flex-direction: row; */
   align-items: flex-end;
-  justify-content: space-between;
+  /* justify-content: space-between; */
   row-gap: 40px;
   width: 711px;
   height: 54px;
 }
 
-
+.content__details {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
 
 .title {
   font-size: 74px;
@@ -126,10 +131,17 @@ ol {
   font-family: 'Fira Sans Condensed', sans-serif;
   text-transform: capitalize;
   font-size: 18px;
+  flex-wrap: wrap;
+  line-height: 0.8;
+}
+
+.result__video-container {
+  position: relative;
 }
 
 .content__list-item:not(:nth-last-child(2)) {
-  margin-bottom: 30px; /*задать вертикальный отступ всем кроме последнего элемента*/
+  margin-bottom: 30px;
+  /*задать вертикальный отступ всем кроме последнего элемента*/
 }
 
 .content__card-link {
@@ -143,8 +155,7 @@ ol {
 
 .content__video-card-thumbnail {
   width: 50%;
-  object-fit: cover;
-  object-position: center;
+  
 }
 
 .content__video-card-description-container {
@@ -178,9 +189,17 @@ ol {
 
 .button,
 .checkbox,
-.search-form__label-text,
-.search-form__pseudo-checkbox {
+.search-form__label-text {
   cursor: pointer;
+}
+
+.search-form__checkbox-list {
+  display: flex;
+  flex-direction: row;
+  min-width: 212px;
+  justify-content: space-between;
+  align-items: baseline;
+  padding-top: 5px;
 }
 
 .search-form__textfield {
@@ -196,22 +215,14 @@ ol {
   appearance: none;
 }
 
-:where(.search-form__textfield, .button):focus-visible {
-  outline: 1px solid #fff;
-  outline-offset: 1px;
+.search-form__textfield:focus {
+  outline: none;
+  box-shadow: none;
   color: #fff;
-  /*обводка в фокусе*/
-}
-
-.search-form__label:focus-within {
-  outline: 1px solid #fff;
-  outline-offset: 1px;
-  color: #fff;
-  /*обводка в фокусе*/
 }
 
 .search-form__textfield:not(:focus) {
-  color: rgb(255, 255, 255);
+  color: rgba(0, 0, 0, 0.5); /* цвет текста серый без фокуса */
 }
 
 .search-form__fieldset-title {
@@ -232,24 +243,12 @@ ol {
   max-width: 194px;
 }
 
-:is(.button, .search-form__label-text):hover {
-  text-decoration: underline;
-}
-
-.search-form__checkbox-list {
-  display: flex;
-  flex-direction: row;
-  min-width: 212px;
-  justify-content: space-between;
-  align-items: center;
-  padding-bottom: 3px;
-}
-
 .search-form__pseudo-checkbox {  
   display: block;
   width: 19px;
   height: 19px;
   border: 1px solid #fff;
+
 }
 
 .search-form__checkbox:checked + span {
@@ -260,10 +259,8 @@ ol {
 
 .search-form__checkbox:checked + span::before {
   content: '';
-  display: block;
   background-color: #fff;
   width: 15px;
   height: 15px;
-  border: 1px solid #fff;
+  display: block;
 }
-
