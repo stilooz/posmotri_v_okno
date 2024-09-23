@@ -209,6 +209,7 @@ ol {
 .search-form__label {
   width: fit-content;
   display: flex;
+  align-items: center ;
   gap: 5px;
 }
 
@@ -228,7 +229,7 @@ ol {
   min-width: 212px;
   justify-content: space-between;
   align-items: center;
-  padding-bottom: 3px;
+  padding-bottom: 5px;
 }
 
 .search-form__checkbox:checked + span {
